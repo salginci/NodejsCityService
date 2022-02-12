@@ -1,0 +1,22 @@
+{
+  "name": "cityservice",
+  "version": "1.0.0",
+  "description": "World State City API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "test"
+  },
+  "keywords": [
+    "world",
+    "city"
+  ],
+  "author": "Ozgur SALGINCI",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mariadb": "^2.5.5"
+  },
+  "devDependencies": {}
+}
