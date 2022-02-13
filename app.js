@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
  
 // Get route with name districts that returns  city districts sent with state_id
 app.get('/hello', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World! 2 ');
 });
 
 // GET
