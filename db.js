@@ -4,7 +4,7 @@ var mariadb = require('mariadb');
 // Create a connection pool
 var pool = 
   mariadb.createPool({
-    host: "127.0.0.1", 
+    host: "45.200.120.78", 
     port: 3306,
     user: "sigal", 
     password: "8hRE+zpyLk",
