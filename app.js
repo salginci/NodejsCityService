@@ -1,12 +1,23 @@
 const express = require('express')
 const db = require('./db')
 const app = express()
-const port = 8080
+const port = 9051
 const bodyParser = require("body-parser");
  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
  
+// Get route with name districts that returns  city districts sent with state_id
+app.get('/districts/:state_id', (req, res) => {
+    db.getDistricts(req.params.state_id, (err, data) => {
+        if (err) {
+        res.status(500).send(err)
+        } else {
+        res.send(data)
+        }
+    })
+});
+
 // GET
 app.get('/countries', async (req, res) => {
 
