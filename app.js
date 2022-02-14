@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/hello', (req, res) => {
   res.send('Hello World! to  ');
 });
+app.get('/eldor', (req, res) => {
+    res.send('Hello Eldor!  ');
+  });
 
 // GET
 app.get('/countries', async (req, res) => {
