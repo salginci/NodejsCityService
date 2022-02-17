@@ -27,7 +27,8 @@ app.use(function(req, res, next) {
     next();
 });
 
-
+app.use(cors())
+app.options('*', cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
