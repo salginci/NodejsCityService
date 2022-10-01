@@ -65,6 +65,16 @@ app.get('/cities', async (req, res) => {
     }
 });
 
+app.get('/countrycities', async (req, res) => {
+
+    console.log("GET /countrycities");
+    try {
+        const result = await db.pool.query("select * from cities where country_id = ?", [req.query.country]);
+        res.send(result);
+    } catch (err) {
+        res.status(400).send(new Error('description'));
+    }
+});
 
   
   
