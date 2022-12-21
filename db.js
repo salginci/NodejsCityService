@@ -1,17 +1,18 @@
  
 var mariadb = require('mariadb');
- 
+const mysql = require('mysql');
 // Create a connection pool
-var pool = 
-  mariadb.createPool({
-    host: "45.200.120.78", 
-    port: 3306,
-    user: "sigal", 
-    password: "8hRE+zpyLk",
-    database: "world"
-  });
+
+
+var conStr=process.env.DB_DO_CONNECTION_STRING;
+console.log(conStr);
+// var pool = 
+//   mariadb.createPool(conStr);
  
 // Expose a method to establish connection with MariaDB SkySQL
+
+const connection=mysql.createConnection(conStr);
+
 module.exports = Object.freeze({
-  pool: pool
+  pool: connection
 });

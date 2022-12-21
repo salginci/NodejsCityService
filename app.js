@@ -28,8 +28,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/hello', (req, res) => {
   res.send('Hello World! to  ');
 });
-app.get('/eldor', (req, res) => {
-    res.send('Hello Eldor! World ');
+app.get('/ozgur', (req, res) => {
+    res.send('Hello Ozgur! World ');
   });
 
 // GET
@@ -37,8 +37,14 @@ app.get('/countries', async (req, res) => {
 
     console.log("GET /countries");
     try {
-        const result = await db.pool.query("select * from countries");
-        res.send(result);
+       await db.pool.query("select * from countries", (err, rows) => {
+            if(err) throw err;
+            console.log('The data from users table are: \n', rows);
+            res.send(rows);
+            
+        });
+      
+        
     } catch (err) {
         res.status(400).send(new Error('description'));
     }
@@ -47,8 +53,12 @@ app.get('/states', async (req, res) => {
 
     console.log("GET /countries");
     try {
-        const result = await db.pool.query("select * from states where country_id = ?", [req.query.countryid]);
-        res.send(result);
+        const result = await db.pool.query("select * from states where country_id = ?", [req.query.countryid], (err, rows) => {
+            if(err) throw err;
+            console.log('The data from users table are: \n', rows);
+            res.send(rows);
+            
+        });
     } catch (err) {
         res.status(400).send(new Error('description'));
     }
@@ -58,8 +68,12 @@ app.get('/cities', async (req, res) => {
 
     console.log("GET /cities");
     try {
-        const result = await db.pool.query("select * from cities where state_id = ?", [req.query.state]);
-        res.send(result);
+        const result = await db.pool.query("select * from cities where state_id = ?", [req.query.state], (err, rows) => {
+            if(err) throw err;
+            console.log('The data from users table are: \n', rows);
+            res.send(rows);
+            
+        });
     } catch (err) {
         res.status(400).send(new Error('description'));
     }
@@ -69,8 +83,12 @@ app.get('/countrycities', async (req, res) => {
 
     console.log("GET /countrycities");
     try {
-        const result = await db.pool.query("select * from cities where country_id = ?", [req.query.country]);
-        res.send(result);
+        const result = await db.pool.query("select * from cities where country_id = ?", (err, rows) => {
+            if(err) throw err;
+            console.log('The data from users table are: \n', rows);
+            res.send(rows);
+            
+        });
     } catch (err) {
         res.status(400).send(new Error('description'));
     }
