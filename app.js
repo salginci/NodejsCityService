@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('./db')
 var cors = require("cors");
 const app = express()
-const port = 8088
+const port = 50001
 const bodyParser = require("body-parser");
 app.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
